@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVISO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+            /* Cursor personalizado */
+            cursor: url('https://i.imgur.com/K81uO2k.png'), auto;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Efeito de glitch no texto */
+        h1, p {
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px 0 red, -2px -2px 0 cyan; }
+            50% { text-shadow: -2px -2px 0 red, 2px 2px 0 cyan; }
+            100% { text-shadow: 2px 2px 0 red, -2px -2px 0 cyan; }
+        }
+        
+        .main-title {
+            color: red;
+            font-family: 'Creepster', cursive;
+            font-size: 4em;
+            text-shadow: 0 0 10px red;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .corner-phrases {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            text-align: right;
+            font-size: 0.7em;
+            color: #fff;
+            opacity: 0.5;
+        }
+        
+        .corner-phrases p.blinking {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Estilo para o código hacker */
+        .hacked-phrase {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'monospace', 'Courier New', monospace; /* Fonte para código */
+            font-size: 1.5em; /* Tamanho ajustado para texto de código */
+            color: #00ff00; /* Cor verde de hacker */
+            opacity: 0.7;
+            animation: tremor 0.1s infinite alternate, glitch 1s infinite; /* Tremer e glitch */
+            text-shadow: 0 0 5px #00ff00;
+            z-index: 999;
+            pointer-events: none;
+            text-align: left; /* Alinhamento à esquerda */
+            line-height: 1.2;
+            white-space: pre; /* Mantém a formatação do texto */
+        }
+
+        @keyframes tremor {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            25% { transform: translate(-51%, -49%) rotate(0.5deg); }
+            50% { transform: translate(-49%, -51%) rotate(-0.5deg); }
+            75% { transform: translate(-51%, -49%) rotate(0.5deg); }
+            100% { transform: translate(-50%, -50%) rotate(0deg); }
+        }
+
+        .scary-phrases {
+            margin-top: 1000vh; /* Valor ajustado para aumentar o espaço */
+            margin-bottom: 500vh;
+            text-align: left;
+            width: 80%;
+        }
+
+        .scary-phrases p {
+            font-size: 0.8em;
+            color: #ccc;
+            margin: 5px 0;
+            opacity: 0.7;
+        }
+
+        .poll-container {
+            margin-top: 100px;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            background-color: #111;
+        }
+
+        .poll-container h3 {
+            margin-bottom: 20px;
+        }
+
+        .poll-options label {
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .end-message {
+            margin-top: 50px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 5px #fff;
+        }
+
+        /* Efeito Jumpscare */
+        #jumpscare {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #jumpscare-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Manchas de sangue fixas */
+        .blood-stain {
+            position: fixed;
+            opacity: 0;
+            animation: fadein 5s forwards;
+            z-index: -1;
+        }
+
+        @keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 0.5; }
+        }
+
+        #stain1 { top: 5%; left: 10%; width: 250px; transform: rotate(20deg); animation-delay: 1s; }
+        #stain2 { bottom: 15%; right: 5%; width: 300px; transform: rotate(-30deg); animation-delay: 2s; }
+        #stain3 { top: 30%; right: 20%; width: 200px; animation-delay: 3s; }
+    </style>
+</head>
+<body>
+
+    <h1 class="main-title">ESTÁS AVISADO, SEJA QUAL FOR A TUA IDADE VAI SER TRAUMATIZANTE.</h1>
+
+    <div class="corner-phrases">
+        <p>Não há salvação aqui.</p>
+        <p class="blinking">A tua sombra não é tua.</p>
+        <p>Eles estão a observar-te.</p>
+        <p>O teu nome é o próximo na lista.</p>
+        <p>Não há para onde fugir.</p>
+    </div>
+
+    <div class="hacked-phrase">
+        _processo.pid = 666;
+        _user_auth = false;
+        system.access_denied = true;
+        _location = 'localizando...';
+        ...
+        _connection_lost_
+        
+        [22:15:34] Tentativa de acesso... falhada.
+        [22:15:35] Porta 22 (SSH) fechada.
+        [22:15:36] A testar portas... 80, 443, 8080.
+        [22:15:38] Entrada na porta 8080... confirmada.
+        [22:15:39] User: unknown
+        [22:15:40] Password: _
+        [22:15:41] A iniciar script...
+        [22:15:42] ** Injeção de código bem-sucedida. **
+        [22:15:43] Ficheiros do sistema a serem modificados...
+        [22:15:45] _ERRO_ FATAL: kernel32.dll corrompido.
+        [22:15:46] A tua sessão será terminada em 10 segundos.
+        [22:15:47] Não há como parar isto.
+        [22:15:48] ...a fechar portas...
+    </div>
+
+    <div class="scary-phrases">
+        <p>Aquele ruído que ouviste... não era o vento.</p>
+        <p>Estás a olhar para a tela, mas algo está a olhar de volta.</p>
+        <p>Não estás sozinho na sala.</p>
+        <p>Ele está atrás de ti.</p>
+        <p>Vais-te arrepender. Acredita.</p>
+        <p>Não continues.</p>
+        <p>É melhor não olhares para trás.</p>
+        <p>O som da tua respiração é a única coisa que te mantém vivo.</p>
+        <p>Já não tens tempo.</p>
+        <p>Não penses que isto é apenas uma página.</p>
+        <p>Nós vemos-te. Nós ouvimos-te.</p>
+        <p>E as portas estão todas trancadas.</p>
+        <p>Não há para onde fugir.</p>
+    </div>
+
+    <div class="poll-container">
+        <h3>Quão assustador foi?</h3>
+        <div class="poll-options">
+            <input type="radio" id="very" name="scary_level" value="muito">
+            <label for="very">muito</label>
+            <input type="radio" id="little" name="scary_level" value="pouco">
+            <label for="little">pouco</label>
+        </div>
+    </div>
+    
+    <div class="end-message">
+        PARABÉNS! CHEGASTE AO FIM DA PÁGINA.
+    </div>
+
+    <div id="jumpscare">
+        <img id="jumpscare-image" src="https://i.imgur.com/K1l9b4d.jpeg" alt="Susto">
+    </div>
+
+    <img id="stain1" class="blood-stain" src="https://i.imgur.com/K72G23z.png" alt="mancha de sangue">
+    <img id="stain2" class="blood-stain" src="https://i.imgur.com/K72G23z.png" alt="mancha de sangue">
+    <img id="stain3" class="blood-stain" src="https://i.imgur.com/K72G23z.png" alt="mancha de sangue">
+    
+    <audio id="ambient-sound" loop autoplay>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const jumpscare = document.getElementById('jumpscare');
+        const audio = document.getElementById('ambient-sound');
+
+        // Susto aleatório
+        const randomTime = Math.random() * 20000 + 10000; // Tempo entre 10 e 30 segundos
+        setTimeout(() => {
+            jumpscare.style.display = 'flex';
+            setTimeout(() => {
+                jumpscare.style.display = 'none';
+            }, 500); // O susto dura 0.5 segundos
+        }, randomTime);
+        
+        // Ativa o áudio quando o utilizador interage com a página
+        document.body.addEventListener('click', () => {
+            audio.volume = 0.2; // Volume baixo
+            audio.play();
+        });
+        
+    </script>
+</body>
+</html>
